@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import json
 
-
+with open('templates/config.json', 'rb') as f:
+	params = json.load(f)
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/new-bie'
+app.config['SQLALCHEMY_DATABASE_URI'] =  params['params']
 db = SQLAlchemy(app)
 
 class Contact(db.Model):

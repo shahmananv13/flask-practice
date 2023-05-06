@@ -1,0 +1,5 @@
+{
+	"params":{
+		"local_uri":"mysql://root:@localhost/new-bie"
+	}
+}
