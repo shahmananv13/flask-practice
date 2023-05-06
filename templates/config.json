@@ -1,5 +1,14 @@
 {
 	"params":{
-		"local_uri":"mysql://root:@localhost/new-bie"
+		"local_server": "True",
+		"local_uri":"mysql://root:@localhost/new-bie",
+		"prod_uri":"mysql://root:@localhost/new-bie",
+		"fb_url":"https://facebook.com/profile.php?id=100013466436290",
+	    "tw_url":"https://twitter.com/codingthunder",
+	    "gh_url": "https://github.com/shahmananv13",
+	    "blog_name": "BeiNew",
+	    "tag_line": "Be New, being a NewBei",
+	    "gmail-user":"",
+	    "gmail-password":""
 	}
 }
