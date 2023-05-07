@@ -62,10 +62,11 @@ def contact():
 		entry = Contact(name = name, mes = msg, date = datetime.now(), phone_num = phone, email = email)
 		db.session.add(entry)
 		db.session.commit()
+		### uncomment this when you want the email service
 		# mail.send_message(	
 		# 			subject = f'New Message From {name}',
 		# 			sender = email,
-		# 			body = f'{msg} /n {phone}',
+		# 			body = f'{msg} \n {phone} \n {email}',
 		# 			recipients = [params['params']['gmail-user']]			
 		# 		)
 	return render_template('contact.html', params = params)
