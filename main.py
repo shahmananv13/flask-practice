@@ -24,6 +24,14 @@ class Contact(db.Model):
 	mes = db.Column(db.String(50), nullable=False)
 	date = db.Column(db.String(50), nullable = True)
 
+class Posts(db.Model):
+	sno = db.Column(db.Integer, primary_key=True)
+	title = db.Column(db.String(50), nullable=False)
+	slug = db.Column(db.String(25), nullable=False)
+	content = db.Column(db.String(50), nullable=False)
+	image_url = db.Column(db.String(50), nullable=False)
+	date = db.Column(db.String(50), nullable = True)
+
 app.config.update(
     MAIL_SERVER='smtp.gmail.com',
     MAIL_PORT=465,
@@ -47,9 +55,15 @@ def about():
 def index():
     return render_template('index.html')
 
-@app.route("/post")
-def post():
-    return render_template('post.html')
+@app.route("/post/<string:post_slug>", methods=['GET'])
+def post_route(post_slug):
+	print(post_slug, flush = True)
+	post = Posts.query.filter_by(slug=post_slug).first()
+	return render_template('post.html', params=params, post=post)
+
+# @app.route("/post")
+# def post():
+#     return render_template('post.html', params = params)
 
 
 @app.route("/contact", methods = ['GET', 'POST'])
