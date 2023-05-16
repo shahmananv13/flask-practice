@@ -9,6 +9,7 @@
 	    "blog_name": "BeiNew",
 	    "tag_line": "Be New, being a NewBei",
 	    "gmail-user":"",
-	    "gmail-password":""
+	    "gmail-password":"",
+	    "pagination": 2
 	}
 }
