@@ -28,6 +28,7 @@ class Posts(db.Model):
 	sno = db.Column(db.Integer, primary_key=True)
 	title = db.Column(db.String(50), nullable=False)
 	slug = db.Column(db.String(25), nullable=False)
+	subtitle = db.Column(db.String(50), nullable=False)
 	content = db.Column(db.String(50), nullable=False)
 	image_url = db.Column(db.String(50), nullable=False)
 	date = db.Column(db.String(50), nullable = True)
@@ -44,7 +45,8 @@ mail = Mail(app)
 
 @app.route("/")
 def home():
-    return render_template('index.html', params = params)
+	posts = Posts.quert.find_by().all()[:params['params']['pagination']]
+    return render_template('index.html', params = params, posts = posts)
 
 @app.route("/about")
 def about():
