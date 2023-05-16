@@ -45,8 +45,8 @@ mail = Mail(app)
 
 @app.route("/")
 def home():
-	posts = Posts.quert.find_by().all()[:params['params']['pagination']]
-    return render_template('index.html', params = params, posts = posts)
+	posts = Posts.query.filter_by().all()[:params['params']['pagination']]
+	return render_template('index.html', params = params, posts = posts)
 
 @app.route("/about")
 def about():
